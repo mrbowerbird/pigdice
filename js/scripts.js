@@ -7,7 +7,11 @@ function PlayerRoll(roll, turnTotal, finalScore) {
 
 PlayerRoll.prototype.randomizer = function() {
   this.roll = Math.floor(Math.random() * 6) + 1;
+  if (this.roll === 1) {
+    alert("You're done");
+  } else {
   return this.roll;
+  }; 
 };
 
 // UI logic
