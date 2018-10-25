@@ -5,18 +5,20 @@ function PlayerRoll(roll, turnTotal, finalScore) {
   this.finalScore = 0;
 };
 
-PlayerRoll.prototype.randomizer = function() {
-  return Math.floor(Math.random() * 6) + 1;
-}
+//PlayerRoll.prototype.randomizer = function() {
+//  return Math.floor(Math.random() * 6) + 1;
+//}
 
 PlayerRoll.prototype.rollDie = function() {
-  //this.roll = Math.floor(Math.random() * 6) + 1;
+  this.roll = Math.floor(Math.random() * 6) + 1;
   if (this.roll === 1) {
     this.turnTotal = 0;
     alert("You're done");
     //NEED TO ADD .SHOW feature when Player 1's turn again
     $("#Roll1").hide();
     $("#Hold1").hide();
+    $("#Roll2").show();
+    $("#Hold2").show();
 
   } else {
     console.log("The latest roll: " + this.roll)
@@ -31,6 +33,8 @@ PlayerRoll.prototype.holdEm = function() {
   //NEED TO ADD .SHOW feature when Player 1's turn again
   $("#Roll1").hide();
   $("#Hold1").hide();
+  $("#Roll2").show();
+  $("#Hold2").show();
 };
 
 // UI logic
@@ -40,7 +44,7 @@ $(document).ready(function() {
 
   $("#Roll1").click(function(event) {
       event.preventDefault();
-    newPlayer1.roll = newPlayer1.randomizer();
+    //newPlayer1.roll = newPlayer1.randomizer();
     newPlayer1.rollDie();
   });
 
