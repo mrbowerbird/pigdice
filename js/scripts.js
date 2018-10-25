@@ -16,11 +16,12 @@ PlayerRoll.prototype.rollDie = function() {
     $("#Hold2").show();
 
   } else {
-    console.log("The latest roll: " + this.roll)
+    $("#roll1").text(this.roll);
+    $("#turn1").text(this.turnTotal);
     this.turnTotal += this.roll;
     if ((this.finalScore + this.turnTotal) < 100) {
-    console.log("The latest roll (WIN CHECK): " + this.roll)
-    console.log("Player 1 Overall score is: " + this.finalScore)
+    $("#roll1").text(this.roll);
+    $("#turn1").text(this.turnTotal);
     } else {
       console.log("Your Overall score is: " + (this.finalScore + this.turnTotal) + " YOU WIN!");
           $("#Roll2").hide();
@@ -32,7 +33,7 @@ PlayerRoll.prototype.rollDie = function() {
 
 PlayerRoll.prototype.holdEm = function() {
   this.finalScore += this.turnTotal;
-  alert("You're done!  Your score is " + this.finalScore);
+  $("#score1").text(this.finalScore);
   $("#Roll1").hide();
   $("#Hold1").hide();
   $("#Roll2").show();
